@@ -3,6 +3,7 @@ import { SummonTransmutation } from "../generated/TransmutationV2Factory/Transmu
 
 import { TransmutationTemplate } from "../generated/templates";
 import { Transmutation } from "../generated/schema";
+import { addTransaction } from "./transactions";
 
 // emit Deployment(
 //   _moloch,
@@ -26,6 +27,8 @@ export function handleTransmutationDeployment(event: Deployment): void {
   transmutation.save();
 
   TransmutationTemplate.create(event.params.transmutation);
+
+  addTransaction(event.block, event.transaction);
 }
 
 export function handleSummonTransmutation(event: SummonTransmutation): void {
@@ -43,4 +46,6 @@ export function handleSummonTransmutation(event: SummonTransmutation): void {
   transmutation.details = event.params.details;
 
   transmutation.save();
+
+  addTransaction(event.block, event.transaction);
 }

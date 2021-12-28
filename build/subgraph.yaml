@@ -6,11 +6,11 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: WrapNZapFactory
-    network: mainnet
+    network: celo
     source:
-      address: "0x4e521FF388c83b4c945a33984ba42Efb73Cc04e6"
+      address: "0x07269699bc441FC97d12d5478Cb09522EF32f76A"
       abi: WrapNZapFactory
-      startBlock: 12872022
+      startBlock: 8691309
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4

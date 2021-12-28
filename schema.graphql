@@ -14,3 +14,8 @@ type WrapNZap @entity {
   moloch: Bytes! # address
   wrapper: Bytes! # address
 }
+
+type MolochTransaction @entity {
+  id: ID!
+  createdAt: String!
+}
