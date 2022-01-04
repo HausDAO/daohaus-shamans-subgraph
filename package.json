@@ -1,5 +1,5 @@
 {
-  "name": "daohaus-boosts",
+  "name": "daohaus-shamans",
   "version": "0.1.0",
   "scripts": {
     "create": "graph create odyssy-automaton/daohaus-boosts --node https://api.thegraph.com/deploy/",
@@ -15,19 +15,16 @@
     "prepare:rinkeby": "node manifests/deploy-prep.js rinkeby",
     "prepare:arbitrum": "node manifests/deploy-prep.js arbitrum-one",
     "prepare:celo": "node manifests/deploy-prep.js celo",
-    "deploy:mainnet": "yarn prepare:mainnet && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-boosts",
-    "deploy:xdai": "yarn prepare:xdai && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-boosts-xdai",
-    "deploy:matic": "yarn prepare:matic && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-boosts-matic",
-    "deploy:kovan": "yarn prepare:kovan && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-boosts-kovan",
-    "deploy:rinkeby": "yarn prepare:rinkeby && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-boosts-rinkeby",
-    "deploy:arbitrum": "yarn prepare:arbitrum && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-boosts-arbitrum",
-    "deploy:celo": "yarn prepare:celo && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-boosts-celo"
-  },
-  "devDependencies": {
-    "@graphprotocol/graph-cli": "^0.19.0",
-    "@graphprotocol/graph-ts": "^0.19.0"
+    "deploy:mainnet": "yarn prepare:mainnet && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-shamans",
+    "deploy:xdai": "yarn prepare:xdai && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-shamans-xdai",
+    "deploy:matic": "yarn prepare:matic && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-shamans-matic",
+    "deploy:kovan": "yarn prepare:kovan && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-shamans-kovan",
+    "deploy:rinkeby": "yarn prepare:rinkeby && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-shamans-rinkeby",
+    "deploy:arbitrum": "yarn prepare:arbitrum && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-shamans-arbitrum",
+    "deploy:celo": "yarn prepare:celo && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-shamans-celo"
   },
   "dependencies": {
+    "@graphprotocol/graph-ts": "^0.22.1",
     "babel-polyfill": "^6.26.0",
     "babel-register": "^6.26.0",
     "js-yaml": "^3.13.1"

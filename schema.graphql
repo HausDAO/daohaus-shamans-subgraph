@@ -1,21 +1,52 @@
-type Transmutation @entity {
-  id: ID!
-  moloch: Bytes! # address
-  distributionToken: Bytes! # address
-  minion: Bytes! # address
-  transmutation: Bytes! # address
-  trust: Bytes # address
-  capitalToken: Bytes # address
-  details: String
-}
-
-type WrapNZap @entity {
-  id: ID!
-  moloch: Bytes! # address
-  wrapper: Bytes! # address
-}
-
-type MolochTransaction @entity {
+type Shaman @entity {
   id: ID!
   createdAt: String!
+  shamanAddress: Bytes!
+  molochAddress: Bytes!
+  shamanType: String!
+  details: String!
+  minionSafeConfig: MinionSafeConfig @derivedFrom(field: "shaman")
+  yeeterConfig: YeeterConfig @derivedFrom(field: "shaman")
+  yeets: [Yeet!] @derivedFrom(field: "shaman")
+}
+
+type MinionSafeConfig @entity {
+  id: ID!
+  createdAt: String!
+  molochAddress: Bytes!
+  shamanAddress: Bytes!
+  shaman: Shaman!
+  safeAddress: Bytes!
+}
+
+type YeeterConfig @entity {
+  id: ID!
+  createdAt: String!
+  molochAddress: Bytes!
+  shamanAddress: Bytes!
+  shaman: Shaman!
+  maxTarget: BigInt!
+  raiseEndTime: BigInt!
+  raiseStartTime: BigInt!
+  maxUnits: BigInt!
+  pricePerUnit: BigInt!
+}
+
+type Yeet @entity {
+  id: ID!
+  createdAt: String!
+  shamanAddress: Bytes!
+  molochAddress: Bytes!
+  shaman: Shaman!
+  contributorAddress: Bytes!
+  amount: BigInt!
+  lootToGive: BigInt!
+  lootToPlatform: BigInt!
+}
+
+type YeeterPlatform @entity {
+  id: ID!
+  createdAt: String!
+  platformFee: BigInt!
+  lootPerUnit: BigInt!
 }
