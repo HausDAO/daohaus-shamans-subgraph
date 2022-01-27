@@ -15,7 +15,7 @@
     "prepare:rinkeby": "node manifests/deploy-prep.js rinkeby",
     "prepare:arbitrum": "node manifests/deploy-prep.js arbitrum-one",
     "prepare:celo": "node manifests/deploy-prep.js celo",
-    "deploy:mainnet": "yarn prepare:mainnet && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-shamans",
+    "deploy:mainnet": "yarn prepare:mainnet && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-shamans-subgraph",
     "deploy:xdai": "yarn prepare:xdai && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-shamans-xdai",
     "deploy:matic": "yarn prepare:matic && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-shamans-matic",
     "deploy:kovan": "yarn prepare:kovan && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-shamans-kovan",

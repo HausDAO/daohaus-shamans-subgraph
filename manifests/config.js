@@ -1,7 +1,25 @@
 module.exports.config = {
   mainnet: {
-    dataSources: [],
-    templates: [],
+    dataSources: [
+      {
+        name: "v22AndSafeMinion",
+        template: "v22AndSafeMinion-ds.yaml",
+        address: "0x96f9D443Bd71146fF15310a7748d61C8FF72D5C3",
+        startBlock: 14062801,
+      },
+      {
+        name: "YeeterFactory",
+        template: "yeeterFactory-ds.yaml",
+        address: "0x3b603BF5DaFF47F174cA3Fd2d2f8d690A720b59F",
+        startBlock: 14062860,
+      },
+    ],
+    templates: [
+      {
+        name: "yeeterTemplate",
+        template: "yeeter-template.yaml",
+      },
+    ],
   },
   "arbitrum-one": {
     dataSources: [],
