@@ -6,11 +6,11 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: V22AndSafeMinionFactory
-    network: rinkeby
+    network: xdai
     source:
-      address: '0xf734feCA5A2441103E6a8B4Ae9172Dfe92cA145a'
+      address: '0xb30c2F83c027667C66A2CdFE0D3ba4Ba6B834F04'
       abi: V22AndSafeMinionFactory
-      startBlock: 9901609
+      startBlock: 19988137
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -27,11 +27,11 @@ dataSources:
       file: ./src/v22-safe-minion-factory-mapping.ts
   - kind: ethereum/contract
     name: YeeterFactory
-    network: rinkeby
+    network: xdai
     source:
-      address: '0x378472D32Bc8c2D55CF9E8F962F867e94d752ADa'
+      address: '0x398e3a9c53C30Cac5B1ce9cfAbbE011338703686'
       abi: YeeterFactory
-      startBlock: 9901675
+      startBlock: 19988177
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -53,7 +53,7 @@ dataSources:
 templates:
   - kind: ethereum/contract
     name: YeeterTemplate
-    network: rinkeby
+    network: xdai
     source:
       abi: YeeterShaman
     mapping:

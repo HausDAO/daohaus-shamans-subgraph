@@ -52,6 +52,7 @@ export function handleSummonYeeter(event: SummonYeetComplete): void {
   config.raiseStartTime = event.params.raiseStartTime;
   config.maxUnits = event.params.maxUnits;
   config.maxTarget = event.params.maxTarget;
+  config.pricePerUnit = event.params.pricePerUnit;
 
   shaman.save();
   config.save();

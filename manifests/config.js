@@ -16,8 +16,26 @@ module.exports.config = {
     templates: [],
   },
   xdai: {
-    dataSources: [],
-    templates: [],
+    dataSources: [
+      {
+        name: "v22AndSafeMinion",
+        template: "v22AndSafeMinion-ds.yaml",
+        address: "0xb30c2F83c027667C66A2CdFE0D3ba4Ba6B834F04",
+        startBlock: 19988137,
+      },
+      {
+        name: "YeeterFactory",
+        template: "yeeterFactory-ds.yaml",
+        address: "0x398e3a9c53C30Cac5B1ce9cfAbbE011338703686",
+        startBlock: 19988177,
+      },
+    ],
+    templates: [
+      {
+        name: "yeeterTemplate",
+        template: "yeeter-template.yaml",
+      },
+    ],
   },
   rinkeby: {
     dataSources: [
