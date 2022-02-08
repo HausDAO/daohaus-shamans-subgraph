@@ -42,6 +42,7 @@ type Yeet @entity {
   amount: BigInt!
   lootToGive: BigInt!
   lootToPlatform: BigInt!
+  transactionHash: Bytes!
 }
 
 type YeeterPlatform @entity {

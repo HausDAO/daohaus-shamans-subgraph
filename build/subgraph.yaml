@@ -26,6 +26,27 @@ dataSources:
           handler: handleSummonComplete
       file: V22AndSafeMinionFactory/V22AndSafeMinionFactory.wasm
   - kind: ethereum/contract
+    name: V22AndSafeMinionFactoryv2
+    network: mainnet
+    source:
+      address: "0xBc2696ff8a3c7bc2E5C0c6Ea5A0cA0c5D36cE39a"
+      abi: V22AndSafeMinionFactory
+      startBlock: 14141164
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Shaman
+        - MinionSafeConfig
+      abis:
+        - name: V22AndSafeMinionFactory
+          file: V22AndSafeMinionFactoryv2/abis/V22AndSafeMinionFactory.json
+      eventHandlers:
+        - event: SummonComplete(address,indexed address,address,address,string)
+          handler: handleSummonComplete
+      file: V22AndSafeMinionFactory/V22AndSafeMinionFactory.wasm
+  - kind: ethereum/contract
     name: YeeterFactory
     network: mainnet
     source:

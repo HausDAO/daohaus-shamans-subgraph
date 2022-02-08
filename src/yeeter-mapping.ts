@@ -30,6 +30,7 @@ export function handleYeetReceived(event: YeetReceived): void {
   yeet.amount = event.params.amount;
   yeet.lootToGive = event.params.lootToGive;
   yeet.lootToPlatform = event.params.lootToPlatform;
+  yeet.transactionHash = event.transaction.hash;
 
   yeet.save();
 }

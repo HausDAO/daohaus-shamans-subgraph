@@ -370,6 +370,7 @@ export class Yeet extends Entity {
     this.set("amount", Value.fromBigInt(BigInt.zero()));
     this.set("lootToGive", Value.fromBigInt(BigInt.zero()));
     this.set("lootToPlatform", Value.fromBigInt(BigInt.zero()));
+    this.set("transactionHash", Value.fromBytes(Bytes.empty()));
   }
 
   save(): void {
@@ -468,6 +469,15 @@ export class Yeet extends Entity {
 
   set lootToPlatform(value: BigInt) {
     this.set("lootToPlatform", Value.fromBigInt(value));
+  }
+
+  get transactionHash(): Bytes {
+    let value = this.get("transactionHash");
+    return value!.toBytes();
+  }
+
+  set transactionHash(value: Bytes) {
+    this.set("transactionHash", Value.fromBytes(value));
   }
 }
 
