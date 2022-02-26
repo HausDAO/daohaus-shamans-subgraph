@@ -13,14 +13,20 @@ import { log } from "@graphprotocol/graph-ts";
 export function handleYeetReceived(event: YeetReceived): void {
   let shamanId = event.address.toHexString();
   let shaman = Shaman.load(shamanId);
-  log.info("**** recieved - shamanId: {}", [shamanId]);
+  log.info("**** recieved - contributorAddress: {}", [
+    event.params.contributorAddress.toHex(),
+  ]);
 
   if (shaman == null) {
+    log.info("**** shaman null - shamanId: {}", [shamanId]);
     return;
   }
 
   let yeet = new Yeet(
-    shamanId.concat("-yeet-").concat(event.block.timestamp.toString())
+    shamanId
+      .concat("-yeet-")
+      .concat(event.block.timestamp.toString())
+      .concat(event.params.contributorAddress.toHex())
   );
   yeet.createdAt = event.block.timestamp.toString();
   yeet.shaman = shamanId;
