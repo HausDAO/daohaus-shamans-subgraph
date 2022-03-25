@@ -59,6 +59,12 @@ module.exports.config = {
         address: "0x398e3a9c53C30Cac5B1ce9cfAbbE011338703686",
         startBlock: 19988177,
       },
+      {
+        name: "YeeterERC20Factory",
+        template: "yeeterERC20Factory-ds.yaml",
+        address: "0x0F8E0f76Ad95C8135C1cEc77957C26e9532f321b",
+        startBlock: 21247287,
+      },
     ],
     templates: [
       {
@@ -90,8 +96,8 @@ module.exports.config = {
       {
         name: "YeeterERC20Factory",
         template: "yeeterERC20Factory-ds.yaml",
-        address: "0x1F6Ee7bcdE638Fb758310cCDF542081B65BE6e78",
-        startBlock: 10344176,
+        address: "0x388c4afd4a20762545A20a9C4F140B03F8D7a123",
+        startBlock: 10371855,
       },
     ],
     templates: [
