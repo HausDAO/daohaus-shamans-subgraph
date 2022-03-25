@@ -6,7 +6,6 @@ import {
   Value,
   ValueKind,
   store,
-  Address,
   Bytes,
   BigInt,
   BigDecimal
@@ -247,6 +246,8 @@ export class YeeterConfig extends Entity {
     this.set("raiseStartTime", Value.fromBigInt(BigInt.zero()));
     this.set("maxUnits", Value.fromBigInt(BigInt.zero()));
     this.set("pricePerUnit", Value.fromBigInt(BigInt.zero()));
+    this.set("token", Value.fromString(""));
+    this.set("erc20Only", Value.fromBoolean(false));
   }
 
   save(): void {
@@ -354,6 +355,24 @@ export class YeeterConfig extends Entity {
 
   set pricePerUnit(value: BigInt) {
     this.set("pricePerUnit", Value.fromBigInt(value));
+  }
+
+  get token(): string {
+    let value = this.get("token");
+    return value!.toString();
+  }
+
+  set token(value: string) {
+    this.set("token", Value.fromString(value));
+  }
+
+  get erc20Only(): boolean {
+    let value = this.get("erc20Only");
+    return value!.toBoolean();
+  }
+
+  set erc20Only(value: boolean) {
+    this.set("erc20Only", Value.fromBoolean(value));
   }
 }
 
@@ -542,5 +561,59 @@ export class YeeterPlatform extends Entity {
 
   set lootPerUnit(value: BigInt) {
     this.set("lootPerUnit", Value.fromBigInt(value));
+  }
+}
+
+export class Token extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+
+    this.set("name", Value.fromString(""));
+    this.set("symbol", Value.fromString(""));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save Token entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        "Cannot save Token entity with non-string ID. " +
+          'Considering using .toHex() to convert the "id" to a string.'
+      );
+      store.set("Token", id.toString(), this);
+    }
+  }
+
+  static load(id: string): Token | null {
+    return changetype<Token | null>(store.get("Token", id));
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get name(): string {
+    let value = this.get("name");
+    return value!.toString();
+  }
+
+  set name(value: string) {
+    this.set("name", Value.fromString(value));
+  }
+
+  get symbol(): string {
+    let value = this.get("symbol");
+    return value!.toString();
+  }
+
+  set symbol(value: string) {
+    this.set("symbol", Value.fromString(value));
   }
 }

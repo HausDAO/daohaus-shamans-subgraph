@@ -1,9 +1,9 @@
 kind: ethereum/contract
-name: YeeterFactory
+name: YeeterERC20Factory
 network:
 source:
   address: ""
-  abi: YeeterFactory
+  abi: YeeterERC20Factory
   startBlock:
 mapping:
   kind: ethereum/events
@@ -14,13 +14,13 @@ mapping:
     - Token
     - YeeterConfig
   abis:
-    - name: YeeterFactory
-      file: ./abis/YeeterFactory.json
+    - name: YeeterERC20Factory
+      file: ./abis/YeeterERC20Factory.json
     - name: ERC20
       file: ./abis/ERC20.json
   eventHandlers:
-    - event: SummonYeetComplete(indexed address,address,address,uint256,uint256,uint256,uint256,uint256,string)
+    - event: SummonYeetComplete(indexed address,address,address,uint256,uint256,uint256,uint256,uint256,string,bool)
       handler: handleSummonYeeter
     - event: "PlatformFeeUpdate(uint256,uint256)"
       handler: handlePlatformFeeUpdate
-  file: ./src/yeeter-factory-mapping.ts
+  file: ./src/yeeter-erc20-factory-mapping.ts

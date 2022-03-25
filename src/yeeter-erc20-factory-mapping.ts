@@ -1,12 +1,12 @@
+import { PlatformFeeUpdate } from "../generated/YeeterFactory/YeeterFactory";
+import { SummonYeetComplete } from "../generated/YeeterERC20Factory/YeeterERC20Factory";
 import {
-  SummonYeetComplete,
-  PlatformFeeUpdate,
-} from "../generated/YeeterFactory/YeeterFactory";
+  handlePlatformFeeUpdate as _handlePlatformFeeUpdate
+} from "./yeeter-factory-mapping";
 import { Shaman, YeeterConfig, YeeterPlatform } from "../generated/schema";
 import { YeeterTemplate } from "../generated/templates";
-import { Address, BigInt } from "@graphprotocol/graph-ts";
+import { BigInt } from "@graphprotocol/graph-ts";
 import { addToken } from "./helpers";
-// import { addTransaction } from "./helpers";
 
 //  event SummonYeetComplete(
 //   address indexed moloch,
@@ -20,7 +20,6 @@ import { addToken } from "./helpers";
 //   string details
 // );
 
-// TODO: track the platform fee and loot per unit
 export function handleSummonYeeter(event: SummonYeetComplete): void {
   let yeeterPlatformId = "yeeter-platform-v1";
   let yeeterPlatform = YeeterPlatform.load(yeeterPlatformId);
@@ -56,7 +55,7 @@ export function handleSummonYeeter(event: SummonYeetComplete): void {
   config.maxTarget = event.params.maxTarget;
   config.pricePerUnit = event.params.pricePerUnit;
   config.token = event.params.wrapper.toHex();
-  config.erc20Only = false;
+  config.erc20Only = event.params._onlyERC20;
 
   shaman.save();
   config.save();
@@ -64,12 +63,5 @@ export function handleSummonYeeter(event: SummonYeetComplete): void {
 
 // PlatformFeeUpdate(uint256 platformFee, uint256 lootPerUnit)
 export function handlePlatformFeeUpdate(event: PlatformFeeUpdate): void {
-  let yeeterPlatformId = "yeeter-platform-v1";
-  let yeeterPlatform = YeeterPlatform.load(yeeterPlatformId);
-  if (yeeterPlatform == null) {
-    return;
-  }
-  yeeterPlatform.platformFee = event.params.platformFee;
-  yeeterPlatform.lootPerUnit = event.params.lootPerUnit;
-  yeeterPlatform.save();
+  _handlePlatformFeeUpdate(event);
 }

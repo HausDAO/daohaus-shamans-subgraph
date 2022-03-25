@@ -30,6 +30,8 @@ type YeeterConfig @entity {
   raiseStartTime: BigInt!
   maxUnits: BigInt!
   pricePerUnit: BigInt!
+  token: Token!
+  erc20Only: Boolean!
 }
 
 type Yeet @entity {
@@ -50,4 +52,10 @@ type YeeterPlatform @entity {
   createdAt: String!
   platformFee: BigInt!
   lootPerUnit: BigInt!
+}
+
+type Token @entity {
+  id: ID!
+  name: String!
+  symbol: String!
 }

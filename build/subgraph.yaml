@@ -59,10 +59,13 @@ dataSources:
       language: wasm/assemblyscript
       entities:
         - Shaman
+        - Token
         - YeeterConfig
       abis:
         - name: YeeterFactory
           file: YeeterFactory/abis/YeeterFactory.json
+        - name: ERC20
+          file: YeeterFactory/abis/ERC20.json
       eventHandlers:
         - event: SummonYeetComplete(indexed
             address,address,address,uint256,uint256,uint256,uint256,uint256,string)
