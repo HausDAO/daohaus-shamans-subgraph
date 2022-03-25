@@ -6,11 +6,11 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: V22AndSafeMinionFactory
-    network: rinkeby
+    network: mainnet
     source:
-      address: "0xf734feCA5A2441103E6a8B4Ae9172Dfe92cA145a"
+      address: "0x96f9D443Bd71146fF15310a7748d61C8FF72D5C3"
       abi: V22AndSafeMinionFactory
-      startBlock: 9901609
+      startBlock: 14062801
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -27,11 +27,11 @@ dataSources:
       file: V22AndSafeMinionFactory/V22AndSafeMinionFactory.wasm
   - kind: ethereum/contract
     name: V22AndSafeMinionFactoryv2
-    network: rinkeby
+    network: mainnet
     source:
-      address: "0x61f71A402779108f25aD4B369Dd217d3F008B458"
+      address: "0xBc2696ff8a3c7bc2E5C0c6Ea5A0cA0c5D36cE39a"
       abi: V22AndSafeMinionFactory
-      startBlock: 10101432
+      startBlock: 14141164
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -48,11 +48,11 @@ dataSources:
       file: V22AndSafeMinionFactory/V22AndSafeMinionFactory.wasm
   - kind: ethereum/contract
     name: YeeterFactory
-    network: rinkeby
+    network: mainnet
     source:
-      address: "0x378472D32Bc8c2D55CF9E8F962F867e94d752ADa"
+      address: "0x3b603BF5DaFF47F174cA3Fd2d2f8d690A720b59F"
       abi: YeeterFactory
-      startBlock: 9901675
+      startBlock: 14062860
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -73,37 +73,10 @@ dataSources:
         - event: PlatformFeeUpdate(uint256,uint256)
           handler: handlePlatformFeeUpdate
       file: YeeterFactory/YeeterFactory.wasm
-  - kind: ethereum/contract
-    name: YeeterERC20Factory
-    network: rinkeby
-    source:
-      address: "0x1F6Ee7bcdE638Fb758310cCDF542081B65BE6e78"
-      abi: YeeterERC20Factory
-      startBlock: 10344176
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.5
-      language: wasm/assemblyscript
-      entities:
-        - Shaman
-        - Token
-        - YeeterConfig
-      abis:
-        - name: YeeterERC20Factory
-          file: YeeterERC20Factory/abis/YeeterERC20Factory.json
-        - name: ERC20
-          file: YeeterERC20Factory/abis/ERC20.json
-      eventHandlers:
-        - event: SummonYeetComplete(indexed
-            address,address,address,uint256,uint256,uint256,uint256,uint256,string,bool)
-          handler: handleSummonYeeter
-        - event: PlatformFeeUpdate(uint256,uint256)
-          handler: handlePlatformFeeUpdate
-      file: YeeterERC20Factory/YeeterERC20Factory.wasm
 templates:
   - kind: ethereum/contract
     name: YeeterTemplate
-    network: rinkeby
+    network: mainnet
     source:
       abi: YeeterShaman
     mapping:
