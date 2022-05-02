@@ -1,8 +1,6 @@
 import { PlatformFeeUpdate } from "../generated/YeeterFactory/YeeterFactory";
 import { SummonYeetComplete } from "../generated/YeeterERC20Factory/YeeterERC20Factory";
-import {
-  handlePlatformFeeUpdate as _handlePlatformFeeUpdate
-} from "./yeeter-factory-mapping";
+import { handlePlatformFeeUpdate as _handlePlatformFeeUpdate } from "./yeeter-factory-mapping";
 import { Shaman, YeeterConfig, YeeterPlatform } from "../generated/schema";
 import { YeeterTemplate } from "../generated/templates";
 import { BigInt } from "@graphprotocol/graph-ts";
@@ -38,6 +36,7 @@ export function handleSummonYeeter(event: SummonYeetComplete): void {
   shaman.createdAt = event.block.timestamp.toString();
   shaman.shamanAddress = event.params.yeeter;
   shaman.molochAddress = event.params.moloch;
+  shaman.enabled = false;
   shaman.details = event.params.details;
   shaman.shamanType = "yeeter";
 

@@ -5,6 +5,7 @@ type Shaman @entity {
   molochAddress: Bytes!
   shamanType: String!
   details: String!
+  enabled: Boolean!
   minionSafeConfig: MinionSafeConfig @derivedFrom(field: "shaman")
   yeeterConfig: YeeterConfig @derivedFrom(field: "shaman")
   yeets: [Yeet!] @derivedFrom(field: "shaman")

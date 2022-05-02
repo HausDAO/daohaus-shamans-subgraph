@@ -19,3 +19,17 @@ export class YeeterTemplate extends DataSourceTemplate {
     );
   }
 }
+
+export class MolochV22Template extends DataSourceTemplate {
+  static create(address: Address): void {
+    DataSourceTemplate.create("MolochV22Template", [address.toHex()]);
+  }
+
+  static createWithContext(address: Address, context: DataSourceContext): void {
+    DataSourceTemplate.createWithContext(
+      "MolochV22Template",
+      [address.toHex()],
+      context
+    );
+  }
+}

@@ -39,6 +39,7 @@ export function handleSummonYeeter(event: SummonYeetComplete): void {
   shaman.createdAt = event.block.timestamp.toString();
   shaman.shamanAddress = event.params.yeeter;
   shaman.molochAddress = event.params.moloch;
+  shaman.enabled = false;
   shaman.details = event.params.details;
   shaman.shamanType = "yeeter";
 

@@ -1,5 +1,7 @@
 import { SummonComplete } from "../generated/V22AndSafeMinionFactory/V22AndSafeMinionFactory";
 import { Shaman, MinionSafeConfig } from "../generated/schema";
+import { MolochV22Template } from "../generated/templates";
+
 // import { addTransaction } from "./helpers";
 
 // event SummonComplete(
@@ -14,12 +16,15 @@ export function handleSummonComplete(event: SummonComplete): void {
   // let shamanId = molochId
   //   .concat("-shaman-")
   //   .concat(event.params.minion.toHex());
+  MolochV22Template.create(event.params.moloch);
+
   let shamanId = event.params.minion.toHex();
   let shaman = new Shaman(shamanId);
 
   shaman.createdAt = event.block.timestamp.toString();
   shaman.shamanAddress = event.params.minion;
   shaman.molochAddress = event.params.moloch;
+  shaman.enabled = false;
   shaman.details = event.params.details;
   shaman.shamanType = "safe minion";
   shaman.details = event.params.details;

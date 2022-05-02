@@ -93,3 +93,21 @@ templates:
       eventHandlers:
         - event: 'YeetReceived(indexed address,uint256,address,uint256,uint256)'
           handler: handleYeetReceived
+  - kind: ethereum/contract
+    name: MolochV22Template
+    network: mainnet
+    source:
+      abi: V22Moloch
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      file: ./src/v2-mapping.ts
+      entities:
+        - Shaman
+      abis:
+        - name: V22Moloch
+          file: ./abis/V22Moloch.json
+      eventHandlers:
+        - event: 'SetShaman(indexed address,bool)'
+          handler: handleSetShaman

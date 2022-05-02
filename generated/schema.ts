@@ -6,6 +6,7 @@ import {
   Value,
   ValueKind,
   store,
+  Address,
   Bytes,
   BigInt,
   BigDecimal
@@ -21,6 +22,7 @@ export class Shaman extends Entity {
     this.set("molochAddress", Value.fromBytes(Bytes.empty()));
     this.set("shamanType", Value.fromString(""));
     this.set("details", Value.fromString(""));
+    this.set("enabled", Value.fromBoolean(false));
   }
 
   save(): void {
@@ -92,6 +94,15 @@ export class Shaman extends Entity {
 
   set details(value: string) {
     this.set("details", Value.fromString(value));
+  }
+
+  get enabled(): boolean {
+    let value = this.get("enabled");
+    return value!.toBoolean();
+  }
+
+  set enabled(value: boolean) {
+    this.set("enabled", Value.fromBoolean(value));
   }
 
   get minionSafeConfig(): string | null {

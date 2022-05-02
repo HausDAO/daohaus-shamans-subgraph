@@ -25,6 +25,10 @@ module.exports.config = {
         name: "yeeterTemplate",
         template: "yeeter-template.yaml",
       },
+      {
+        name: "v22Template",
+        template: "v22-template.yaml",
+      },
     ],
   },
   "arbitrum-one": {
@@ -71,6 +75,10 @@ module.exports.config = {
         name: "yeeterTemplate",
         template: "yeeter-template.yaml",
       },
+      {
+        name: "v22Template",
+        template: "v22-template.yaml",
+      },
     ],
   },
   rinkeby: {
@@ -104,6 +112,10 @@ module.exports.config = {
       {
         name: "yeeterTemplate",
         template: "yeeter-template.yaml",
+      },
+      {
+        name: "v22Template",
+        template: "v22-template.yaml",
       },
     ],
   },
