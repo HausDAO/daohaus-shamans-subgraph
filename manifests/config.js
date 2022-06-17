@@ -123,4 +123,30 @@ module.exports.config = {
     dataSources: [],
     templates: [],
   },
+  optimism: {
+    dataSources: [
+       {
+        name: "v22AndSafeMinionv2",
+        template: "v22AndSafeMinionv2-ds.yaml",
+        address: "0x8E7d5b1EB2d2d212574eF363168e5B2ba750b20e",
+        startBlock: 10878859,
+      },
+      {
+        name: "YeeterFactory",
+        template: "yeeterFactory-ds.yaml",
+        address: "0xbB907b1a769bD338c9d09Fb20C2997ECE5E715a3",
+        startBlock: 10881342,
+      },
+    ],
+     templates: [
+      {
+        name: "yeeterTemplate",
+        template: "yeeter-template.yaml",
+      },
+      {
+        name: "v22Template",
+        template: "v22-template.yaml",
+      },
+    ]
+  }
 };
