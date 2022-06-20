@@ -14,6 +14,12 @@ module.exports.config = {
         startBlock: 14141164,
       },
       {
+        name: "v22AndSafeMinionv3",
+        template: "v22AndSafeMinionv3-ds.yaml",
+        address: "0x51498dDdd2A8cdeC82932E08A37eBaF346C38EFd",
+        startBlock: 14932311,
+      },
+      {
         name: "YeeterFactory",
         template: "yeeterFactory-ds.yaml",
         address: "0x3b603BF5DaFF47F174cA3Fd2d2f8d690A720b59F",
@@ -56,6 +62,12 @@ module.exports.config = {
         template: "v22AndSafeMinionv2-ds.yaml",
         address: "0xd06b40B5030D8d46645FaceE1fA31C9F9A83F567",
         startBlock: 20468085,
+      },
+      {
+        name: "v22AndSafeMinionv3",
+        template: "v22AndSafeMinionv3-ds.yaml",
+        address: "0x9D344863b7f13B1943FF0FE8D1D8323C0F6B6Bb8",
+        startBlock: 22542957,
       },
       {
         name: "YeeterFactory",
@@ -124,3 +136,4 @@ module.exports.config = {
     templates: [],
   },
 };
+20468085;
