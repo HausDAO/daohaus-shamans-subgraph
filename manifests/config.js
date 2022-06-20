@@ -38,8 +38,30 @@ module.exports.config = {
     ],
   },
   "arbitrum-one": {
-    dataSources: [],
-    templates: [],
+    dataSources: [
+      {
+        name: "v22AndSafeMinionv2",
+        template: "v22AndSafeMinionv2-ds.yaml",
+        address: "0x35453fBb522E53725c18FcB9901088d3D14009d5",
+        startBlock: 14013468,
+      },
+      {
+        name: "YeeterFactory",
+        template: "yeeterFactory-ds.yaml",
+        address: "0x76095061f675F4CcD86094b8ac9018fD96a70Fa3",
+        startBlock: 14015019,
+      },
+    ],
+    templates: [
+      {
+        name: "yeeterTemplate",
+        template: "yeeter-template.yaml",
+      },
+      {
+        name: "v22Template",
+        template: "v22-template.yaml",
+      },
+    ],
   },
   celo: {
     dataSources: [],
@@ -137,7 +159,7 @@ module.exports.config = {
   },
   optimism: {
     dataSources: [
-       {
+      {
         name: "v22AndSafeMinionv2",
         template: "v22AndSafeMinionv2-ds.yaml",
         address: "0x8E7d5b1EB2d2d212574eF363168e5B2ba750b20e",
@@ -150,7 +172,7 @@ module.exports.config = {
         startBlock: 10881342,
       },
     ],
-     templates: [
+    templates: [
       {
         name: "yeeterTemplate",
         template: "yeeter-template.yaml",
@@ -159,7 +181,7 @@ module.exports.config = {
         name: "v22Template",
         template: "v22-template.yaml",
       },
-    ]
-  }
+    ],
+  },
 };
 20468085;
