@@ -16,6 +16,7 @@
     "prepare:arbitrum": "node manifests/deploy-prep.js arbitrum-one",
     "prepare:celo": "node manifests/deploy-prep.js celo",
     "prepare:optimism": "node manifests/deploy-prep.js optimism",
+    "prepare:goerli": "node manifests/deploy-prep.js goerli",
     "deploy:mainnet": "yarn prepare:mainnet && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-shamans-subgraph",
     "deploy:xdai": "yarn prepare:xdai && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-shamans-xdai",
     "deploy:matic": "yarn prepare:matic && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-shamans-matic",
@@ -23,7 +24,8 @@
     "deploy:rinkeby": "yarn prepare:rinkeby && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-shamans-rinkeby",
     "deploy:arbitrum": "yarn prepare:arbitrum && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-shamans-arbitrum",
     "deploy:celo": "yarn prepare:celo && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-shamans-celo",
-    "deploy:optimism": "yarn prepare:optimism && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-shamans-optimism"
+    "deploy:optimism": "yarn prepare:optimism && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-shamans-optimism",
+    "deploy:goerli": "yarn prepare:goerli && yarn build:all && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-shamans-goerli"
   },
   "dependencies": {
     "@graphprotocol/graph-ts": "^0.22.1",

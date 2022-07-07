@@ -6,11 +6,11 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: V22AndSafeMinionFactoryv2
-    network: arbitrum-one
+    network: goerli
     source:
-      address: '0x35453fBb522E53725c18FcB9901088d3D14009d5'
+      address: '0x121931c0Bc458A5f13F3861444AeB036cc8a5363'
       abi: V22AndSafeMinionFactory
-      startBlock: 14013468
+      startBlock: 7021833
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -27,7 +27,7 @@ dataSources:
       file: ./src/v22-safe-minion-factory-mapping.ts
   - kind: ethereum/contract
     name: YeeterFactory
-    network: arbitrum-one
+    network: goerli
     source:
       address: '0x76095061f675F4CcD86094b8ac9018fD96a70Fa3'
       abi: YeeterFactory
@@ -56,7 +56,7 @@ dataSources:
 templates:
   - kind: ethereum/contract
     name: YeeterTemplate
-    network: arbitrum-one
+    network: goerli
     source:
       abi: YeeterShaman
     mapping:
@@ -74,7 +74,7 @@ templates:
           handler: handleYeetReceived
   - kind: ethereum/contract
     name: MolochV22Template
-    network: arbitrum-one
+    network: goerli
     source:
       abi: V22Moloch
     mapping:

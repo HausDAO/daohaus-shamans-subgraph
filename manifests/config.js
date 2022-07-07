@@ -63,6 +63,32 @@ module.exports.config = {
       },
     ],
   },
+  goerli: {
+    dataSources: [
+      {
+        name: "v22AndSafeMinionv2",
+        template: "v22AndSafeMinionv2-ds.yaml",
+        address: "0x121931c0Bc458A5f13F3861444AeB036cc8a5363",
+        startBlock: 7021833,
+      },
+      {
+        name: "YeeterFactory",
+        template: "yeeterFactory-ds.yaml",
+        address: "0x76095061f675F4CcD86094b8ac9018fD96a70Fa3",
+        startBlock: 14015019,
+      },
+    ],
+    templates: [
+      {
+        name: "yeeterTemplate",
+        template: "yeeter-template.yaml",
+      },
+      {
+        name: "v22Template",
+        template: "v22-template.yaml",
+      },
+    ],
+  },
   celo: {
     dataSources: [],
     templates: [],
