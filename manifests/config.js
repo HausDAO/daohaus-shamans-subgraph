@@ -80,7 +80,7 @@ module.exports.config = {
       {
         name: "baalgroniFactory",
         template: "baalgroniFactory-ds.yaml",
-        address: "0x76095061f675F4CcD86094b8ac9018fD96a70Fa3",
+        address: "0x073BD2CCA5B112A60cFA7C741ccD1307077c4d4D",
         startBlock: 7334468,
       },
     ],

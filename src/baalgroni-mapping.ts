@@ -40,7 +40,7 @@ export function handleTransfer(event: Transfer): void {
 //     uint256 tokedId
 // );
 export function handleBind(event: Bind): void {
-  let shamanId = event.params.baalgroni.toHexString();
+  let shamanId = event.address.toHexString();
   let tokenId = shamanId
     .concat("-nftOnboarderToken-")
     .concat(event.params.tokedId.toString());
@@ -61,7 +61,7 @@ export function handleBind(event: Bind): void {
 //     uint256 tokedId
 // );
 export function handleUnbind(event: Unbind): void {
-  let shamanId = event.params.baalgroni.toHexString();
+  let shamanId = event.address.toHexString();
   let tokenId = shamanId
     .concat("-nftOnboarderToken-")
     .concat(event.params.tokedId.toString());
