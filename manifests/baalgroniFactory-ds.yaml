@@ -1,0 +1,21 @@
+kind: ethereum/contract
+name: BaalgroniFactory
+network:
+source:
+  address: ""
+  abi: BaalgroniFactory
+  startBlock:
+mapping:
+  kind: ethereum/events
+  apiVersion: 0.0.5
+  language: wasm/assemblyscript
+  entities:
+    - Shaman
+    - Token
+  abis:
+    - name: BaalgroniFactory
+      file: ./abis/BaalgroniFactory.json
+  eventHandlers:
+    - event: SummonBaalgroniComplete(address,address,address,uint256,uint256,uint256,uint256,bytes)
+      handler: handleSummonBaalgroni
+  file: ./src/baalgroni-factory-mapping.ts

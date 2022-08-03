@@ -1,0 +1,22 @@
+kind: ethereum/contract
+name: BaalgroniTemplate
+network:
+source:
+  abi: Baalgroni
+mapping:
+  kind: ethereum/events
+  apiVersion: 0.0.5
+  language: wasm/assemblyscript
+  file: ./src/baalgroni-mapping.ts
+  entities:
+    - Yeet
+  abis:
+    - name: Baalgroni
+      file: ./abis/Baalgroni.json
+  eventHandlers:
+    - event: "Bind(address,uint256)"
+      handler: handleBind
+    - event: "Unbind(address,uint256)"
+      handler: handleUnbind
+    - event: "Transfer(indexed address,indexed address,indexed uint256)"
+      handler: handleTransfer

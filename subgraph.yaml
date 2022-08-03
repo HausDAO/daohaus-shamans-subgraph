@@ -26,12 +26,12 @@ dataSources:
           handler: handleSummonComplete
       file: ./src/v22-safe-minion-factory-mapping.ts
   - kind: ethereum/contract
-    name: YeeterFactory
+    name: BaalgroniFactory
     network: goerli
     source:
       address: '0x76095061f675F4CcD86094b8ac9018fD96a70Fa3'
-      abi: YeeterFactory
-      startBlock: 14015019
+      abi: BaalgroniFactory
+      startBlock: 7334468
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -39,20 +39,14 @@ dataSources:
       entities:
         - Shaman
         - Token
-        - YeeterConfig
       abis:
-        - name: YeeterFactory
-          file: ./abis/YeeterFactory.json
-        - name: ERC20
-          file: ./abis/ERC20.json
+        - name: BaalgroniFactory
+          file: ./abis/BaalgroniFactory.json
       eventHandlers:
         - event: >-
-            SummonYeetComplete(indexed
-            address,address,address,uint256,uint256,uint256,uint256,uint256,string)
-          handler: handleSummonYeeter
-        - event: 'PlatformFeeUpdate(uint256,uint256)'
-          handler: handlePlatformFeeUpdate
-      file: ./src/yeeter-factory-mapping.ts
+            SummonBaalgroniComplete(address,address,address,uint256,uint256,uint256,uint256,bytes)
+          handler: handleSummonBaalgroni
+      file: ./src/baalgroni-factory-mapping.ts
 templates:
   - kind: ethereum/contract
     name: YeeterTemplate
@@ -90,3 +84,25 @@ templates:
       eventHandlers:
         - event: 'SetShaman(indexed address,bool)'
           handler: handleSetShaman
+  - kind: ethereum/contract
+    name: BaalgroniTemplate
+    network: goerli
+    source:
+      abi: Baalgroni
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      file: ./src/baalgroni-mapping.ts
+      entities:
+        - Yeet
+      abis:
+        - name: Baalgroni
+          file: ./abis/Baalgroni.json
+      eventHandlers:
+        - event: 'Bind(address,uint256)'
+          handler: handleBind
+        - event: 'Unbind(address,uint256)'
+          handler: handleUnbind
+        - event: 'Transfer(indexed address,indexed address,indexed uint256)'
+          handler: handleTransfer

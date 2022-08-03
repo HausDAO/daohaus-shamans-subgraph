@@ -20,6 +20,7 @@ export class Shaman extends Entity {
     this.set("createdAt", Value.fromString(""));
     this.set("shamanAddress", Value.fromBytes(Bytes.empty()));
     this.set("molochAddress", Value.fromBytes(Bytes.empty()));
+    this.set("molochVersion", Value.fromString(""));
     this.set("shamanType", Value.fromString(""));
     this.set("details", Value.fromString(""));
     this.set("enabled", Value.fromBoolean(false));
@@ -76,6 +77,15 @@ export class Shaman extends Entity {
 
   set molochAddress(value: Bytes) {
     this.set("molochAddress", Value.fromBytes(value));
+  }
+
+  get molochVersion(): string {
+    let value = this.get("molochVersion");
+    return value!.toString();
+  }
+
+  set molochVersion(value: string) {
+    this.set("molochVersion", Value.fromString(value));
   }
 
   get shamanType(): string {
@@ -153,6 +163,40 @@ export class Shaman extends Entity {
       this.unset("yeets");
     } else {
       this.set("yeets", Value.fromStringArray(<Array<string>>value));
+    }
+  }
+
+  get nftOnboarderConfig(): string | null {
+    let value = this.get("nftOnboarderConfig");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set nftOnboarderConfig(value: string | null) {
+    if (!value) {
+      this.unset("nftOnboarderConfig");
+    } else {
+      this.set("nftOnboarderConfig", Value.fromString(<string>value));
+    }
+  }
+
+  get onboardNfts(): Array<string> | null {
+    let value = this.get("onboardNfts");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toStringArray();
+    }
+  }
+
+  set onboardNfts(value: Array<string> | null) {
+    if (!value) {
+      this.unset("onboardNfts");
+    } else {
+      this.set("onboardNfts", Value.fromStringArray(<Array<string>>value));
     }
   }
 }
@@ -626,5 +670,215 @@ export class Token extends Entity {
 
   set symbol(value: string) {
     this.set("symbol", Value.fromString(value));
+  }
+}
+
+export class NftOnboarderConfig extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+
+    this.set("createdAt", Value.fromString(""));
+    this.set("molochAddress", Value.fromBytes(Bytes.empty()));
+    this.set("shamanAddress", Value.fromBytes(Bytes.empty()));
+    this.set("shaman", Value.fromString(""));
+    this.set("wrapperAddress", Value.fromBytes(Bytes.empty()));
+    this.set("price", Value.fromBigInt(BigInt.zero()));
+    this.set("cap", Value.fromBigInt(BigInt.zero()));
+    this.set("lootPerUnit", Value.fromBigInt(BigInt.zero()));
+    this.set("daoCut", Value.fromBigInt(BigInt.zero()));
+    this.set("initializationParams", Value.fromBytes(Bytes.empty()));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save NftOnboarderConfig entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        "Cannot save NftOnboarderConfig entity with non-string ID. " +
+          'Considering using .toHex() to convert the "id" to a string.'
+      );
+      store.set("NftOnboarderConfig", id.toString(), this);
+    }
+  }
+
+  static load(id: string): NftOnboarderConfig | null {
+    return changetype<NftOnboarderConfig | null>(
+      store.get("NftOnboarderConfig", id)
+    );
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get createdAt(): string {
+    let value = this.get("createdAt");
+    return value!.toString();
+  }
+
+  set createdAt(value: string) {
+    this.set("createdAt", Value.fromString(value));
+  }
+
+  get molochAddress(): Bytes {
+    let value = this.get("molochAddress");
+    return value!.toBytes();
+  }
+
+  set molochAddress(value: Bytes) {
+    this.set("molochAddress", Value.fromBytes(value));
+  }
+
+  get shamanAddress(): Bytes {
+    let value = this.get("shamanAddress");
+    return value!.toBytes();
+  }
+
+  set shamanAddress(value: Bytes) {
+    this.set("shamanAddress", Value.fromBytes(value));
+  }
+
+  get shaman(): string {
+    let value = this.get("shaman");
+    return value!.toString();
+  }
+
+  set shaman(value: string) {
+    this.set("shaman", Value.fromString(value));
+  }
+
+  get wrapperAddress(): Bytes {
+    let value = this.get("wrapperAddress");
+    return value!.toBytes();
+  }
+
+  set wrapperAddress(value: Bytes) {
+    this.set("wrapperAddress", Value.fromBytes(value));
+  }
+
+  get price(): BigInt {
+    let value = this.get("price");
+    return value!.toBigInt();
+  }
+
+  set price(value: BigInt) {
+    this.set("price", Value.fromBigInt(value));
+  }
+
+  get cap(): BigInt {
+    let value = this.get("cap");
+    return value!.toBigInt();
+  }
+
+  set cap(value: BigInt) {
+    this.set("cap", Value.fromBigInt(value));
+  }
+
+  get lootPerUnit(): BigInt {
+    let value = this.get("lootPerUnit");
+    return value!.toBigInt();
+  }
+
+  set lootPerUnit(value: BigInt) {
+    this.set("lootPerUnit", Value.fromBigInt(value));
+  }
+
+  get daoCut(): BigInt {
+    let value = this.get("daoCut");
+    return value!.toBigInt();
+  }
+
+  set daoCut(value: BigInt) {
+    this.set("daoCut", Value.fromBigInt(value));
+  }
+
+  get initializationParams(): Bytes {
+    let value = this.get("initializationParams");
+    return value!.toBytes();
+  }
+
+  set initializationParams(value: Bytes) {
+    this.set("initializationParams", Value.fromBytes(value));
+  }
+}
+
+export class OnboardNftToken extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+
+    this.set("shaman", Value.fromString(""));
+    this.set("bound", Value.fromBoolean(false));
+    this.set("tokenId", Value.fromBigInt(BigInt.zero()));
+    this.set("owner", Value.fromBytes(Bytes.empty()));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save OnboardNftToken entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        "Cannot save OnboardNftToken entity with non-string ID. " +
+          'Considering using .toHex() to convert the "id" to a string.'
+      );
+      store.set("OnboardNftToken", id.toString(), this);
+    }
+  }
+
+  static load(id: string): OnboardNftToken | null {
+    return changetype<OnboardNftToken | null>(store.get("OnboardNftToken", id));
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get shaman(): string {
+    let value = this.get("shaman");
+    return value!.toString();
+  }
+
+  set shaman(value: string) {
+    this.set("shaman", Value.fromString(value));
+  }
+
+  get bound(): boolean {
+    let value = this.get("bound");
+    return value!.toBoolean();
+  }
+
+  set bound(value: boolean) {
+    this.set("bound", Value.fromBoolean(value));
+  }
+
+  get tokenId(): BigInt {
+    let value = this.get("tokenId");
+    return value!.toBigInt();
+  }
+
+  set tokenId(value: BigInt) {
+    this.set("tokenId", Value.fromBigInt(value));
+  }
+
+  get owner(): Bytes {
+    let value = this.get("owner");
+    return value!.toBytes();
+  }
+
+  set owner(value: Bytes) {
+    this.set("owner", Value.fromBytes(value));
   }
 }

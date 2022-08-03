@@ -33,3 +33,17 @@ export class MolochV22Template extends DataSourceTemplate {
     );
   }
 }
+
+export class BaalgroniTemplate extends DataSourceTemplate {
+  static create(address: Address): void {
+    DataSourceTemplate.create("BaalgroniTemplate", [address.toHex()]);
+  }
+
+  static createWithContext(address: Address, context: DataSourceContext): void {
+    DataSourceTemplate.createWithContext(
+      "BaalgroniTemplate",
+      [address.toHex()],
+      context
+    );
+  }
+}

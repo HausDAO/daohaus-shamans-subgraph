@@ -24,6 +24,7 @@ export function handleSummonComplete(event: SummonComplete): void {
   shaman.createdAt = event.block.timestamp.toString();
   shaman.shamanAddress = event.params.minion;
   shaman.molochAddress = event.params.moloch;
+  shaman.molochVersion = "2";
   shaman.enabled = false;
   shaman.details = event.params.details;
   shaman.shamanType = "safe minion";
